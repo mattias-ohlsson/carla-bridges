@@ -44,6 +44,14 @@ Requires:       Carla
 %description -n carla-bridge-posix32
 This package provides the Carla posix32 bridge.
 
+%package -n lv2-carla-bridge-posix32
+Summary:        Carla LV2 posix32 bridge
+Requires:       carla-bridge-posix32
+Requires:       lv2-carla
+
+%description -n lv2-carla-bridge-posix32
+This package provides the Carla LV2 posix32 bridge.
+
 %package -n carla-bridge-win32
 Summary:        Carla win32 bridge
 Requires:       Carla
@@ -52,6 +60,14 @@ Requires:       wine
 %description -n carla-bridge-win32
 This package provides the Carla win32 bridge.
 
+%package -n lv2-carla-bridge-win32
+Summary:        Carla LV2 win32 bridge
+Requires:       carla-bridge-win32
+Requires:       lv2-carla
+
+%description -n lv2-carla-bridge-win32
+This package provides the Carla LV2 win32 bridge.
+
 %package -n carla-bridge-win64
 Summary:        Carla win64 bridge
 Requires:       Carla
@@ -59,6 +75,14 @@ Requires:       wine
 
 %description -n carla-bridge-win64
 This package provides the Carla win64 bridge.
+
+%package -n lv2-carla-bridge-win64
+Summary:        Carla LV2 win64 bridge
+Requires:       carla-bridge-win64
+Requires:       lv2-carla
+
+%description -n lv2-carla-bridge-win64
+This package provides the Carla LV2 win64 bridge.
 
 %prep
 %autosetup -n Carla-%{version}
@@ -83,11 +107,25 @@ install -d -m 755 %{buildroot}%{_libdir}/carla
  bin/jackbridge-wine64.dll \
  %{buildroot}%{_libdir}/carla/
 
+install -d -m 755 %{buildroot}%{_libdir}/lv2/carla.lv2
+ln -s %{_libdir}/carla/carla-bridge-posix32 %{buildroot}%{_libdir}/lv2/carla.lv2/
+ln -s %{_libdir}/carla/carla-discovery-posix32 %{buildroot}%{_libdir}/lv2/carla.lv2/
+ln -s %{_libdir}/carla/carla-bridge-win32.exe %{buildroot}%{_libdir}/lv2/carla.lv2/
+ln -s %{_libdir}/carla/carla-discovery-win32.exe %{buildroot}%{_libdir}/lv2/carla.lv2/
+ln -s %{_libdir}/carla/jackbridge-wine32.dll %{buildroot}%{_libdir}/lv2/carla.lv2/
+ln -s %{_libdir}/carla/carla-bridge-win64.exe %{buildroot}%{_libdir}/lv2/carla.lv2/
+ln -s %{_libdir}/carla/carla-discovery-win64.exe %{buildroot}%{_libdir}/lv2/carla.lv2/
+ln -s %{_libdir}/carla/jackbridge-wine64.dll %{buildroot}%{_libdir}/lv2/carla.lv2/
+
 %files -n carla-bridge-posix32
 %doc README.md
 %license doc/GPL.txt
 %{_libdir}/carla/carla-bridge-posix32
 %{_libdir}/carla/carla-discovery-posix32
+
+%files -n lv2-carla-bridge-posix32
+%{_libdir}/lv2/carla.lv2/carla-bridge-posix32
+%{_libdir}/lv2/carla.lv2/carla-discovery-posix32
 
 %files -n carla-bridge-win32
 %doc README.md
@@ -96,12 +134,22 @@ install -d -m 755 %{buildroot}%{_libdir}/carla
 %{_libdir}/carla/carla-discovery-win32.exe
 %{_libdir}/carla/jackbridge-wine32.dll
 
+%files -n lv2-carla-bridge-win32
+%{_libdir}/lv2/carla.lv2/carla-bridge-win32.exe
+%{_libdir}/lv2/carla.lv2/carla-discovery-win32.exe
+%{_libdir}/lv2/carla.lv2/jackbridge-wine32.dll
+
 %files -n carla-bridge-win64
 %doc README.md
 %license doc/GPL.txt
 %{_libdir}/carla/carla-bridge-win64.exe
 %{_libdir}/carla/carla-discovery-win64.exe
 %{_libdir}/carla/jackbridge-wine64.dll
+
+%files -n lv2-carla-bridge-win64
+%{_libdir}/lv2/carla.lv2/carla-bridge-win64.exe
+%{_libdir}/lv2/carla.lv2/carla-discovery-win64.exe
+%{_libdir}/lv2/carla.lv2/jackbridge-wine64.dll
 
 %changelog
 * Wed Jun 10 2020 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 2.1-1
