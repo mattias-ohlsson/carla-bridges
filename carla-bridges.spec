@@ -1,5 +1,5 @@
 Name:           carla-bridges
-Version:        2.1
+Version:        2.1.1
 Release:        1%{?dist}
 Summary:        Carla bridges
 
@@ -152,5 +152,8 @@ ln -s %{_libdir}/carla/jackbridge-wine64.dll %{buildroot}%{_libdir}/lv2/carla.lv
 %{_libdir}/lv2/carla.lv2/jackbridge-wine64.dll
 
 %changelog
+* Tue Jun 16 2020 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 2.1.1-1
+- Update to 2.1.1
+
 * Wed Jun 10 2020 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 2.1-1
 - Initial build
