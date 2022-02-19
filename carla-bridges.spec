@@ -1,5 +1,5 @@
 Name:           carla-bridges
-Version:        2.4.1
+Version:        2.4.2
 Release:        1%{?dist}
 Summary:        Carla bridges
 
@@ -33,6 +33,7 @@ BuildRequires:  mingw64-winpthreads-static
 
 # wine32 and wine64
 BuildRequires:  wine-devel
+BuildRequires:  wine-devel(x86-32)
 
 %description
 This package provides the Carla bridges.
@@ -152,6 +153,9 @@ ln -s %{_libdir}/carla/jackbridge-wine64.dll %{buildroot}%{_libdir}/lv2/carla.lv
 %{_libdir}/lv2/carla.lv2/jackbridge-wine64.dll
 
 %changelog
+* Sat Feb 19 2022 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 2.4.2-1
+- Update to 2.4.2
+
 * Sun Jan 09 2022 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 2.4.1-1
 - Update to 2.4.1
 
