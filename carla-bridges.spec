@@ -1,5 +1,7 @@
+%undefine _auto_set_build_flags
+
 Name:           carla-bridges
-Version:        2.4.2
+Version:        2.4.3
 Release:        1%{?dist}
 Summary:        Carla bridges
 
@@ -153,6 +155,9 @@ ln -s %{_libdir}/carla/jackbridge-wine64.dll %{buildroot}%{_libdir}/lv2/carla.lv
 %{_libdir}/lv2/carla.lv2/jackbridge-wine64.dll
 
 %changelog
+* Sun May 22 2022 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 2.4.3-1
+- Update to 2.4.3
+
 * Sat Feb 19 2022 Mattias Ohlsson <mattias.ohlsson@inprose.com> - 2.4.2-1
 - Update to 2.4.2
 
